@@ -1,1 +1,2 @@
 40 1 * * 1-5 root /home/eprieto/sis/sis_unicode_cleanup.sh
+0 0 1 * * root find /home/eprieto/sis/backups -mtime +30 -name 'exl_students*' -delete
