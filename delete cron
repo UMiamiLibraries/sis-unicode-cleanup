@@ -1,1 +1,0 @@
-0 0 1 * * root find /home/eprieto/sis/backups -mtime +30 -name 'exl_students*' -delete
