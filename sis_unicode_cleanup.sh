@@ -28,13 +28,17 @@ fi
 #unzip and delete the zip
 unzip -j /home/eprieto/sis/exl_students.zip
 rm /home/eprieto/sis/exl_students.zip
+mv /home/eprieto/sis/exl_students.xml /home/eprieto/sis/exl_students2.xml
+
 
 #perl command to remove invalid xml characters
+iconv -f UTF-8 -t UTF-8 -c /home/eprieto/sis/exl_students2.xml > /home/eprieto/sis/exl_students.xml
 perl -CSDA -i -pe's/[^\x9\xA\xD\x20-\x{D7FF}\x{E000}-\x{FFFD}\x{10000}-\x{10FFFF}]+//g;' /home/eprieto/sis/exl_students.xml
 
 #zip the file
 zip exl_students exl_students.xml
 rm /home/eprieto/sis/exl_students.xml
+rm /home/eprieto/sis/exl_students2.xml
 
 #copy back to lib ftp
 #scp exl_students.zip $server:$dir
